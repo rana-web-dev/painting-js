@@ -1,9 +1,12 @@
-const canvas = document.querySelector("canvas");
-const ctx = canvas.getContext("2d");
-const tools = document.querySelectorAll(".tool");
+const
+canvas = document.querySelector("canvas"),
+ctx = canvas.getContext("2d"),
+tools = document.querySelectorAll(".tool");
 
-let isDrawing = false;
-let brushWidth = 5;
+let
+isDrawing = false,
+brushWidth = 5,
+selectedTool = "brush";
 
 window.addEventListener("load", () => {
     canvas.width = canvas.offsetWidth;
@@ -18,16 +21,19 @@ const startDraw = () => {
 
 const drawing = (e) => {
     if(!isDrawing) return;
-    ctx.lineTo(e.offsetX, e.offsetY);
-    ctx.stroke();
-    console.log(e);
+    if(selectedTool === "brush") {
+        ctx.lineTo(e.offsetX, e.offsetY);
+        ctx.stroke();
+    } else if (selectedTool === "rectangle") {
+        drawRectangle(e);
+    }
 }
 
 tools.forEach(btn => {
     btn.addEventListener("click", () => {
-        const remove = document.querySelector(".options .active").classList.remove("active");
+        document.querySelector(".options .active").classList.remove("active");
         btn.classList.add("active");
-        console.log(btn.id);
+        selectedTool = btn.id;
     })
 })
 
