@@ -7,6 +7,7 @@
     <title>Painting</title>
     <link rel="stylesheet" href="/style.css">
     <script src="https://kit.fontawesome.com/4b271310b2.js" crossorigin="anonymous"></script>
+    <script src="/script.js" defer></script>
 </head>
 <body>
     <div class="container">
@@ -14,19 +15,19 @@
             <div class="row">
                 <label class="title">Shapes</label>
                 <div class="options">
-                    <div class="option">
+                    <div class="option tool" id="rectangle">
                         <img class="rectangle" src="/assets/tactangle.png" alt="">
                         <span>Rectangle</span>
                     </div>
-                    <div class="option">
+                    <div class="option tool" id="circle">
                         <img class="circle" src="/assets/circle.png" alt="">
                         <span>Circle</span>
                     </div>
-                    <div class="option">
+                    <div class="option tool" id="triangle">
                         <img class="circle" src="/assets/triangle.jpg" alt="">
                         <span>Triangle</span>
                     </div>
-                    <div class="option">
+                    <div class="option tool" id="fill">
                         <input type="checkbox" id="fill-color">
                         <label for="fill-color">Fill color</label>
                     </div>
@@ -35,13 +36,13 @@
             <div class="row">
                 <label class="title">Options</label>
                 <div class="options">
-                    <div class="option active">
+                    <div class="option active tool" id="brush">
                         <img class="brush" src="/assets/brush.png" alt="">
                         <span>Brush</span>
                     </div>
-                    <div class="option">
+                    <div class="option tool" id="eraser">
                         <img class="eraser" src="/assets/eraser.png" alt="">
-                        <span>Circle</span>
+                        <span>Eraser</span>
                     </div>
                     <div class="">
                         <input type="range" id="range">
@@ -55,7 +56,9 @@
                     <div class="option"></div>
                     <div class="option"></div>
                     <div class="option"></div>
-                    <div class="option"></div>
+                    <div class="option">
+                        <input type="color" id="color-picker" value="#4A98F7" />
+                    </div>
                 </div>
             </div>
             <div class="row buttons">
@@ -64,9 +67,9 @@
             </div>
         </section>
         <section class="drawing-board">
-            
+            <canvas></canvas>
         </section>
     </div>
-    <script src="/script.js"></script>
+    
 </body>
 </html>
