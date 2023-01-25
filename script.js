@@ -5,6 +5,7 @@ tools = document.querySelectorAll(".tool");
 fillColor = document.querySelector("#fill-color");
 brushSize = document.querySelector("#range");
 colorBtn = document.querySelectorAll(".colors .options .option");
+colorPicker = document.querySelector("#color-picker");
 
 let
 prevMouseX,
@@ -84,6 +85,11 @@ colorBtn.forEach(btn => {
         btn.classList.add("selected");
         selectedColor = window.getComputedStyle(btn).getPropertyValue("background-color");
     })
+})
+
+colorPicker.addEventListener("change", () => {
+    colorPicker.parentElement.style.background = colorPicker.value;
+    colorPicker.parentElement.click();
 })
 
 brushSize.addEventListener("change", () => brushWidth = brushSize.value);
