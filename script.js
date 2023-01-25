@@ -24,9 +24,21 @@ const drawRect = (e) => {
     ctx.fillRect(e.offsetX, e.offsetY, prevMouseX - e.offsetX, prevMouseY - e.offsetY);
 }
 
-const drawCircle = () => {
-    ctx.arc(prevMouseX, prevMouseY, 50, 0, 2 * Math.PI);
+const drawCircle = (e) => {
+    ctx.beginPath();
+    const radius = Math.sqrt(Math.pow((prevMouseX - e.offsetX), 2) + Math.pow((prevMouseY - e.offsetY), 2));
+    ctx.arc(prevMouseX, prevMouseY, radius, 0, 2 * Math.PI);
     ctx.stroke();
+    fillColor.checked ? ctx.fill() : ctx.stroke();
+}
+
+const drawTriangle = (e) => {
+    ctx.beginPath();
+    ctx.moveTo(prevMouseX, prevMouseY);
+    ctx.lineTo(e.offsetX, e.offsetY);
+    ctx.lineTo(prevMouseX * 2 - e.offsetX, e.offsetY);
+    ctx.closePath();
+    fillColor.checked ? ctx.fill() : ctx.stroke();
 }
 
 const startDraw = (e) => {
@@ -48,6 +60,8 @@ const drawing = (e) => {
         drawRect(e);
     } else if (selectedTool === "circle") {
         drawCircle(e);
+    } else {
+        drawTriangle(e);
     }
 }
 
@@ -55,7 +69,7 @@ tools.forEach(btn => {
     btn.addEventListener("click", () => {
         document.querySelector(".options .active").classList.remove("active");
         btn.classList.add("active");
-        selectedTool = btn.id;
+        selectedTool = btn.id;        
     })
 })
 
