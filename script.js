@@ -24,6 +24,11 @@ const drawRect = (e) => {
     ctx.fillRect(e.offsetX, e.offsetY, prevMouseX - e.offsetX, prevMouseY - e.offsetY);
 }
 
+const drawCircle = () => {
+    ctx.arc(prevMouseX, prevMouseY, 50, 0, 2 * Math.PI);
+    ctx.stroke();
+}
+
 const startDraw = (e) => {
     prevMouseX = e.offsetX;
     prevMouseY = e.offsetY;
@@ -41,6 +46,8 @@ const drawing = (e) => {
         ctx.stroke();
     } else if (selectedTool === "rectangle") {
         drawRect(e);
+    } else if (selectedTool === "circle") {
+        drawCircle(e);
     }
 }
 
