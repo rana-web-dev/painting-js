@@ -6,6 +6,7 @@ fillColor = document.querySelector("#fill-color");
 brushSize = document.querySelector("#range");
 colorBtn = document.querySelectorAll(".colors .options .option");
 colorPicker = document.querySelector("#color-picker");
+clearCanvas = document.querySelector(".clear-canvas");
 
 let
 prevMouseX,
@@ -91,6 +92,10 @@ colorBtn.forEach(btn => {
 colorPicker.addEventListener("change", () => {
     colorPicker.parentElement.style.background = colorPicker.value;
     colorPicker.parentElement.click();
+})
+
+clearCanvas.addEventListener("click", () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 })
 
 brushSize.addEventListener("change", () => brushWidth = brushSize.value);
