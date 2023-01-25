@@ -85,20 +85,20 @@ section {
     border-radius: 50%;
 }
 .colors .option:nth-child(1) {
-    background-color: #ffffff;
+    background-color: #183a37;
     border: 1px solid #bfbfbf;
 }
 .colors .option:nth-child(2) {
-    background-color: #000000;
+    background-color: #3073c0;
 }
 .colors .option:nth-child(3) {
-    background-color: #e02020;
+    background-color: #aa8214;
 }
 .colors .option:nth-child(4) {
-    background-color: #6DD400;
+    background-color: #000000;
 }
 .colors .option:nth-child(5) {
-    background-color: #4A98F7;
+    background-color: #8f1131;
 }
 .options #color-picker {
     opacity: 0;
