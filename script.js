@@ -4,7 +4,7 @@ ctx = canvas.getContext("2d"),
 tools = document.querySelectorAll(".tool");
 fillColor = document.querySelector("#fill-color");
 brushSize = document.querySelector("#range");
-console.log(brushSize);
+colorBtn = document.querySelectorAll(".colors .options .option");
 
 let
 prevMouseX,
@@ -13,6 +13,7 @@ snapshot,
 isDrawing = false,
 brushWidth = 5,
 selectedTool = "brush";
+selectedColor = "#000";
 
 window.addEventListener("load", () => {
     canvas.width = canvas.offsetWidth;
@@ -49,6 +50,8 @@ const startDraw = (e) => {
     isDrawing = true;
     ctx.beginPath();
     ctx.lineWidth = brushWidth;
+    ctx.strokeStyle = selectedColor;
+    ctx.fillStyle = selectedColor;
     snapshot = ctx.getImageData(0, 0, canvas.width, canvas.height);
 }
 
@@ -72,6 +75,14 @@ tools.forEach(btn => {
         document.querySelector(".options .active").classList.remove("active");
         btn.classList.add("active");
         selectedTool = btn.id;        
+    })
+})
+
+colorBtn.forEach(btn => {
+    btn.addEventListener("click", () => {
+        document.querySelector(".colors .options .selected").classList.remove("selected");
+        btn.classList.add("selected");
+        selectedColor = window.getComputedStyle(btn).getPropertyValue("background-color");
     })
 })
 

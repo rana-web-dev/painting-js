@@ -79,7 +79,7 @@ section {
 .colors .option {
     width: 20px;
     height: 20px;
-    background: red;
+    background-color: red;
     margin-top: 5px;
     position: relative;
     border-radius: 50%;
@@ -104,7 +104,7 @@ section {
     opacity: 0;
     cursor: pointer;
 }
-.colors .option:hover::before {
+.selected::before {
     position: absolute;
     content: "";
     top: 50%;
@@ -116,7 +116,7 @@ section {
     border: 2px solid #fff;
     transform: translate(-50%, -50%);
 }
-.colors .option:first-child:hover::before {
+.colors .option:first-child::before {
     border-color: #cccccc;
 }
 .buttons button {
