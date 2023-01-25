@@ -3,6 +3,8 @@ canvas = document.querySelector("canvas"),
 ctx = canvas.getContext("2d"),
 tools = document.querySelectorAll(".tool");
 fillColor = document.querySelector("#fill-color");
+brushSize = document.querySelector("#range");
+console.log(brushSize);
 
 let
 prevMouseX,
@@ -72,6 +74,8 @@ tools.forEach(btn => {
         selectedTool = btn.id;        
     })
 })
+
+brushSize.addEventListener("change", () => brushWidth = brushSize.value);
 
 canvas.addEventListener("mousedown", startDraw)
 canvas.addEventListener("mousemove", drawing);
