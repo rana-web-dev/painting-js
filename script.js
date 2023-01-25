@@ -7,6 +7,7 @@ brushSize = document.querySelector("#range");
 colorBtn = document.querySelectorAll(".colors .options .option");
 colorPicker = document.querySelector("#color-picker");
 clearCanvas = document.querySelector(".clear-canvas");
+saveImg = document.querySelector(".save-img");
 
 let
 prevMouseX,
@@ -96,6 +97,13 @@ colorPicker.addEventListener("change", () => {
 
 clearCanvas.addEventListener("click", () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+})
+
+saveImg.addEventListener("click", () => {
+    const link = document.createElement("a");
+    link.download = `${Date.now()}.jpg`;
+    link.href = canvas.toDataURL();
+    link.click();
 })
 
 brushSize.addEventListener("change", () => brushWidth = brushSize.value);
